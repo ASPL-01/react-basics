@@ -5,12 +5,12 @@ import Basic from './Basic';
 import Sum from './Sum';
 import Counter from './Counter';
 import Timer from './Timer';
+import Boxes from './Boxes';
 import './index.css';
 
 ReactDOM.render(
   <div>
-    <Timer />
-    <Timer />
+    <Boxes />
   </div>,
   document.getElementById('root')
 );
