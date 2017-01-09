@@ -5,17 +5,19 @@ export default class Timer extends React.Component{
   constructor(props){
     super(props);
     this.state = {counter: 0};
+    this.timer = null;
     this.go = this.go.bind(this);
   }
 
   go(){
+    clearInterval(this.timer);
     const start = +this.num.value;
     this.num.value = "";
     this.setState({counter: start});
-    const timer = setInterval(()=>{
+    this.timer = setInterval(()=>{
       const counter = this.state.counter - 1;
       if(counter < 0){
-        clearInterval(timer);
+        clearInterval(this.timer);
       }else{
         this.setState({counter: counter});
       }
