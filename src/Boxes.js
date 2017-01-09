@@ -4,22 +4,23 @@ import Box from './Box';
 export default class Boxes extends React.Component{
   constructor(props){
     super(props);
-    this.state = {};
+    this.state = {boxes: 0};
+    this.setBoxes = this.setBoxes.bind(this);
   }
 
-  getColors(){
-    // write some awesome random code....
-    return {r: 40, g: 50, b: 60, a: 0.5};
+  setBoxes(event){
+    const boxes = +event.target.value;
+    this.setState({boxes});
   }
 
   render(){
     return (
       <div>
         <h1>Boxes</h1>
+        <input type="number" onChange={this.setBoxes} />
+        <div />
         {
-          Array(10).fill(null).map((_, i) =>{
-            return <Box key={i} colors={this.getColors()} />;
-          })
+          Array(this.state.boxes).fill(null).map((_, i) => <Box key={i} />)
         }
       </div>
     );
